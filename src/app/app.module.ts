@@ -6,6 +6,7 @@ import { UIRouterUpgradeModule } from '@uirouter/angular-hybrid';
 import { appAjsModule } from 'src/app-ajs/app-ajs.module';
 
 import { BModule } from './b/b.module';
+import { BComponent } from './b/b.component';
 
 @NgModule({
   declarations: [],
@@ -18,7 +19,10 @@ import { BModule } from './b/b.module';
     UIRouterUpgradeModule.forRoot(),
     BModule,
   ],
-  providers: []
+  providers: [],
+  entryComponents: [
+    BComponent,
+  ]
 })
 export class AppModule implements DoBootstrap {
   constructor(private upgrade: UpgradeModule) { }

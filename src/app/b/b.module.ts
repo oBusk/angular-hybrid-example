@@ -1,9 +1,7 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BComponent } from './b.component';
+import { NgModule } from '@angular/core';
 import { UIRouterUpgradeModule } from '@uirouter/angular-hybrid';
-
-
+import { BComponent } from './b.component';
 
 @NgModule({
   declarations: [BComponent],
@@ -19,6 +17,5 @@ import { UIRouterUpgradeModule } from '@uirouter/angular-hybrid';
       ]
     })
   ],
-  entryComponents: [BComponent]
 })
 export class BModule { }
