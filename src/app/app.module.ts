@@ -1,16 +1,26 @@
+import { DoBootstrap, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { UpgradeModule } from '@angular/upgrade/static';
+import { UIRouterUpgradeModule } from '@uirouter/angular-hybrid';
 
-import { AppComponent } from './app.component';
+import { appAjsModule } from 'src/app-ajs/app-ajs.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [],
   imports: [
-    BrowserModule
+    BrowserModule,
+    // Provide angular upgrade capabilities
+    UpgradeModule,
+    // Provides the @uirouter/angular directives and registers
+    // the future state for the lazy loaded contacts module
+    UIRouterUpgradeModule.forRoot()
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: []
 })
-export class AppModule { }
+export class AppModule implements DoBootstrap {
+  constructor(private upgrade: UpgradeModule) { }
+
+  ngDoBootstrap() {
+    this.upgrade.bootstrap(document.body, [appAjsModule.name], { strictDi: true })
+  }
+}
