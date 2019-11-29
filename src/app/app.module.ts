@@ -5,6 +5,8 @@ import { UIRouterUpgradeModule } from '@uirouter/angular-hybrid';
 
 import { appAjsModule } from 'src/app-ajs/app-ajs.module';
 
+import { BModule } from './b/b.module';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -13,7 +15,8 @@ import { appAjsModule } from 'src/app-ajs/app-ajs.module';
     UpgradeModule,
     // Provides the @uirouter/angular directives and registers
     // the future state for the lazy loaded contacts module
-    UIRouterUpgradeModule.forRoot()
+    UIRouterUpgradeModule.forRoot(),
+    BModule,
   ],
   providers: []
 })
